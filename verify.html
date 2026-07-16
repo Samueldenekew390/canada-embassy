@@ -1,103 +1,237 @@
-<!-- verify.html -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Verification</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="verify.css">
+    <title>Canada Embassy Verification</title>
 
-    <script type="module" src="firebase.js"></script>
+    <link rel="stylesheet" href="verify.css" />
+
     <script type="module" src="verify.js" defer></script>
-</head>
-<body>
+  </head>
 
-<div class="container">
+  <body>
+    <div class="container">
+      <!-- HEADER -->
 
-    <div class="card">
+      <div class="header">
+        <h1>Canada Embassy Verification Portal</h1>
 
-        <div class="header">
-            <h1>Registration Verification</h1>
-            <p>Applicant Information</p>
+        <p>Official Registration Verification System</p>
+      </div>
+
+      <!-- LOADING -->
+
+      <div id="loading" class="loading">Loading Applicant Information...</div>
+
+      <!-- ERROR -->
+
+      <div id="error" class="error hidden">Registration Not Found</div>
+
+      <!-- RESULT -->
+
+      <div id="result" class="hidden">
+        <!-- STATUS -->
+
+        <div class="status accepted">ACCEPTED</div>
+
+        <!-- ACCEPTANCE LETTER -->
+
+        <div class="letter">
+          <h2>Acceptance Letter From Canada Maple Leaf</h2>
+
+          <h3>Congratulations!</h3>
+
+          <p>
+            We are pleased to inform you that your visa application to work in
+            Canada at Maple Leaf Food Production Company has been accepted.
+            Congratulations on this achievement.
+          </p>
         </div>
 
-        <div id="loading" class="loading">
-            Loading...
+        <!-- APPLICANT PHOTO -->
+
+        <div class="photo-section">
+          <img
+            id="photo"
+            src="https://i.ibb.co/tB6f9CH/default-applicant.jpg"
+            alt="Applicant Photo"
+          />
         </div>
 
-        <div id="error" class="error hidden">
-            Registration Not Found
+        <!-- APPLICANT INFORMATION -->
+
+        <div class="card">
+          <h2>Applicant Information</h2>
+
+          <table class="info-table">
+            <tr>
+              <td><strong>Full Name</strong></td>
+
+              <td id="fullName"></td>
+            </tr>
+
+            <tr>
+              <td><strong>Email</strong></td>
+
+              <td id="email"></td>
+            </tr>
+
+            <tr>
+              <td><strong>Phone</strong></td>
+
+              <td id="phone"></td>
+            </tr>
+
+            <tr>
+              <td><strong>Gender</strong></td>
+
+              <td id="gender"></td>
+            </tr>
+
+            <tr>
+              <td><strong>Date of Birth</strong></td>
+
+              <td id="dob"></td>
+            </tr>
+
+            <tr>
+              <td><strong>Nationality</strong></td>
+
+              <td id="nationality"></td>
+            </tr>
+
+            <tr>
+              <td><strong>Address</strong></td>
+
+              <td id="address"></td>
+            </tr>
+
+            <tr>
+              <td><strong>Registration ID</strong></td>
+
+              <td id="registrationId"></td>
+            </tr>
+
+            <tr>
+              <td><strong>Status</strong></td>
+
+              <td>
+                <span class="accepted-badge"> ACCEPTED </span>
+              </td>
+            </tr>
+          </table>
         </div>
 
-        <div id="result" class="hidden">
+        <!-- APPLICANT PHOTO -->
 
-            <div class="status accepted">
-                ACCEPTED
-            </div>
+        <div class="card">
+          <h2>Applicant Photo</h2>
 
-            <div class="photo-box">
-                <img id="photo" src="" alt="Applicant Photo">
-            </div>
+          <div class="documents">
+            <a id="photoLink" target="_blank">
+              <img
+                id="photoPreview"
+                src="https://i.ibb.co/tB6f9CH/default-applicant.jpg"
+                alt="Applicant Photo"
+              />
 
-            <table>
-
-                <tr>
-                    <th>Full Name</th>
-                    <td id="fullname"></td>
-                </tr>
-
-                <tr>
-                    <th>Email</th>
-                    <td id="email"></td>
-                </tr>
-
-                <tr>
-                    <th>Phone</th>
-                    <td id="phone"></td>
-                </tr>
-
-                <tr>
-                    <th>Gender</th>
-                    <td id="gender"></td>
-                </tr>
-
-                <tr>
-                    <th>Date of Birth</th>
-                    <td id="dob"></td>
-                </tr>
-
-                <tr>
-                    <th>Nationality</th>
-                    <td id="nationality"></td>
-                </tr>
-
-                <tr>
-                    <th>Address</th>
-                    <td id="address"></td>
-                </tr>
-
-                <tr>
-                    <th>Registration ID</th>
-                    <td id="regid"></td>
-                </tr>
-
-                <tr>
-                    <th>Status</th>
-                    <td>
-                        <span class="accepted-text">
-                            ACCEPTED
-                        </span>
-                    </td>
-                </tr>
-
-            </table>
-
+              <p>Applicant Photo</p>
+            </a>
+          </div>
         </div>
 
+        <!-- UNIQUE ID TABLE -->
+
+        <div class="card">
+          <h2>Applicant Verification Codes</h2>
+
+          <table class="codes-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+
+                <th>Unique Code</th>
+              </tr>
+            </thead>
+
+            <tbody id="codesTable"></tbody>
+          </table>
+        </div>
+
+        <!-- COMPANY IMAGE -->
+
+        <div class="company-image">
+          <img
+            id="companyImage"
+            src="https://i.ibb.co/Vcs8h7mj/canadian-flag-landscape-407gr02rvne05cq9.jpg"
+            alt="Company"
+          />
+        </div>
+
+        <!-- ABOUT -->
+
+        <div class="card">
+          <h2>About Our Travel Agency</h2>
+
+          <p>
+            At our Company, we specialize in providing comprehensive consultancy
+            and travel solutions designed to enhance both business efficiency
+            and travel experiences. Our dual expertise allows us to support
+            clients in achieving their strategic goals while also offering
+            exceptional travel services. With a team of seasoned professionals
+            and a commitment to excellence, we deliver tailored solutions that
+            meet the unique needs of our diverse clientele.
+          </p>
+        </div>
+
+        <!-- TEAM -->
+
+        <div class="company-image">
+          <img
+            id="teamImage"
+            src="https://i.ibb.co/99cbSJXK/boilding.jpg"
+            alt="Team"
+          />
+        </div>
+
+        <div class="card">
+          <h2>Our Team</h2>
+
+          <p>
+            Our team consists of experienced consultants and travel experts who
+            bring a wealth of knowledge and passion to their work. With
+            backgrounds spanning various industries and a love for discovering
+            new destinations, our professionals are dedicated to providing
+            top-notch service and tailored solutions. We work collaboratively to
+            ensure that every aspect of your consultancy needs and travel
+            experiences is handled with care and expertise.
+          </p>
+        </div>
+
+        <!-- VISION -->
+
+        <div class="company-image">
+          <img
+            id="visionImage"
+            src="https://i.ibb.co/JR0ZKg65/pointing-and-laughing.jpg"
+            alt="Vision"
+          />
+        </div>
+
+        <div class="card">
+          <h2>Our Vision</h2>
+
+          <p>
+            Our vision is to be the premier agency recognized for our innovative
+            consultancy services and unparalleled travel experiences. We aim to
+            be the trusted partner that businesses rely on for strategic
+            guidance and individuals turn to for memorable journeys while
+            setting new standards in both fields.
+          </p>
+        </div>
+      </div>
     </div>
-
-</div>
-
-</body>
+  </body>
 </html>
