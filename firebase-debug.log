@@ -1,0 +1,54 @@
+[debug] [2026-07-16T07:41:17.938Z] ----------------------------------------------------------------------
+[debug] [2026-07-16T07:41:17.944Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\SAMUEL\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting --project qr-verification-system-27ffb
+[debug] [2026-07-16T07:41:17.945Z] CLI Version:   15.24.0
+[debug] [2026-07-16T07:41:17.945Z] Platform:      win32
+[debug] [2026-07-16T07:41:17.945Z] Node Version:  v24.18.0
+[debug] [2026-07-16T07:41:17.946Z] Detected Agent: unknown
+[debug] [2026-07-16T07:41:17.946Z] Time:          Thu Jul 16 2026 10:41:17 GMT+0300 (East Africa Time)
+[debug] [2026-07-16T07:41:17.946Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\SAMUEL\Desktop\abusha dagi
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] 
+[debug] [2026-07-16T07:42:06.969Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-16T07:42:06.970Z] > authorizing via signed-in user (samueldenekew19@gmail.com)
+[debug] [2026-07-16T07:42:07.003Z] Checked if tokens are valid: true, expires at: 1784190999134
+[debug] [2026-07-16T07:42:07.003Z] Checked if tokens are valid: true, expires at: 1784190999134
+[debug] [2026-07-16T07:42:07.005Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/qr-verification-system-27ffb [none]
+[debug] [2026-07-16T07:42:08.011Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/qr-verification-system-27ffb 200
+[debug] [2026-07-16T07:42:08.011Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/qr-verification-system-27ffb {"projectId":"qr-verification-system-27ffb","projectNumber":"887243561707","displayName":"QR verification system","name":"projects/qr-verification-system-27ffb","resources":{"hostingSite":"qr-verification-system-27ffb"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_98d5d6f2-f284-443c-9c17-a37f50a6389b"}
+[info] i  Using project qr-verification-system-27ffb (QR verification system) . 
+[info] 
+=== Hosting Setup
+[debug] [2026-07-16T07:42:08.193Z] Checked if tokens are valid: true, expires at: 1784190999134
+[debug] [2026-07-16T07:42:08.193Z] Checked if tokens are valid: true, expires at: 1784190999134
+[debug] [2026-07-16T07:42:08.194Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/qr-verification-system-27ffb [none]
+[debug] [2026-07-16T07:42:08.720Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/qr-verification-system-27ffb 200
+[debug] [2026-07-16T07:42:08.720Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/qr-verification-system-27ffb {"projectId":"qr-verification-system-27ffb","projectNumber":"887243561707","displayName":"QR verification system","name":"projects/qr-verification-system-27ffb","resources":{"hostingSite":"qr-verification-system-27ffb"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_98d5d6f2-f284-443c-9c17-a37f50a6389b"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[info] 
+[info] i  Didn't detect a .git folder. Assuming C:\Users\SAMUEL\Desktop\abusha dagi is the project root. 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=298720058&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...

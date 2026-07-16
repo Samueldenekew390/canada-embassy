@@ -1,0 +1,103 @@
+<!-- verify.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Verification</title>
+
+    <link rel="stylesheet" href="verify.css">
+
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="verify.js" defer></script>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <div class="header">
+            <h1>Registration Verification</h1>
+            <p>Applicant Information</p>
+        </div>
+
+        <div id="loading" class="loading">
+            Loading...
+        </div>
+
+        <div id="error" class="error hidden">
+            Registration Not Found
+        </div>
+
+        <div id="result" class="hidden">
+
+            <div class="status accepted">
+                ACCEPTED
+            </div>
+
+            <div class="photo-box">
+                <img id="photo" src="" alt="Applicant Photo">
+            </div>
+
+            <table>
+
+                <tr>
+                    <th>Full Name</th>
+                    <td id="fullname"></td>
+                </tr>
+
+                <tr>
+                    <th>Email</th>
+                    <td id="email"></td>
+                </tr>
+
+                <tr>
+                    <th>Phone</th>
+                    <td id="phone"></td>
+                </tr>
+
+                <tr>
+                    <th>Gender</th>
+                    <td id="gender"></td>
+                </tr>
+
+                <tr>
+                    <th>Date of Birth</th>
+                    <td id="dob"></td>
+                </tr>
+
+                <tr>
+                    <th>Nationality</th>
+                    <td id="nationality"></td>
+                </tr>
+
+                <tr>
+                    <th>Address</th>
+                    <td id="address"></td>
+                </tr>
+
+                <tr>
+                    <th>Registration ID</th>
+                    <td id="regid"></td>
+                </tr>
+
+                <tr>
+                    <th>Status</th>
+                    <td>
+                        <span class="accepted-text">
+                            ACCEPTED
+                        </span>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
