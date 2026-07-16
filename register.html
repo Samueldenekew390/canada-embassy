@@ -1,149 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
 
-<title>Registration</title>
+    <link rel="stylesheet" href="register.css" />
 
-<link rel="stylesheet" href="register.css">
+    <script type="module" src="register.js" defer></script>
+  </head>
 
-<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>Online Registration</h1>
+        <p>Please complete the registration form.</p>
 
-<script type="module" src="register.js" defer></script>
+        <form id="registrationForm">
+          <div class="grid">
+            <div class="input-group">
+              <label>Full Name</label>
+              <input type="text" id="fullName" required />
+            </div>
 
-</head>
+            <div class="input-group">
+              <label>Email</label>
+              <input type="email" id="email" required />
+            </div>
 
-<body>
+            <div class="input-group">
+              <label>Phone Number</label>
+              <input type="text" id="phone" required />
+            </div>
 
-<div class="container">
+            <div class="input-group">
+              <label>Gender</label>
 
-<div class="card">
+              <select id="gender" required>
+                <option value="">Select</option>
+                <option>Male</option>
+                <option>Female</option>
+              </select>
+            </div>
 
-<h1>Online Registration</h1>
+            <div class="input-group">
+              <label>Date of Birth</label>
+              <input type="date" id="dob" required />
+            </div>
 
-<p>Please complete the registration form.</p>
+            <div class="input-group">
+              <label>Nationality</label>
+              <input type="text" id="nationality" required />
+            </div>
+          </div>
 
-<form id="registrationForm">
+          <div class="input-group">
+            <label>Address</label>
 
-<div class="grid">
+            <textarea id="address" rows="4" required></textarea>
+          </div>
 
-<div class="input-group">
-<label>Full Name</label>
-<input
-type="text"
-id="fullName"
-required>
-</div>
+          <h2>Upload Photo</h2>
 
-<div class="input-group">
-<label>Email</label>
-<input
-type="email"
-id="email"
-required>
-</div>
+          <div class="input-group">
+            <label>Passport Photo</label>
 
-<div class="input-group">
-<label>Phone Number</label>
-<input
-type="text"
-id="phone"
-required>
-</div>
+            <input type="file" id="photo" accept="image/*" required />
+          </div>
 
-<div class="input-group">
-<label>Gender</label>
-<select id="gender" required>
+          <button type="submit" id="submitBtn">Register</button>
+        </form>
 
-<option value="">Select</option>
+        <!-- SUCCESS BOX -->
 
-<option>Male</option>
+        <div
+          id="successBox"
+          style="display: none; text-align: center; margin-top: 30px"
+        >
+          <h2>Registration Successful</h2>
 
-<option>Female</option>
+          <p>
+            <strong>Registration ID:</strong>
+            <span id="registrationID"></span>
+          </p>
 
-</select>
-</div>
+          <img id="qrImage" width="250" alt="QR Code" />
 
-<div class="input-group">
-<label>Date of Birth</label>
-<input
-type="date"
-id="dob"
-required>
-</div>
+          <br /><br />
 
-<div class="input-group">
-<label>Nationality</label>
-<input
-type="text"
-id="nationality"
-required>
-</div>
-
-</div>
-
-<div class="input-group">
-<label>Address</label>
-
-<textarea
-id="address"
-rows="4"
-required></textarea>
-
-</div>
-
-<h2>Upload Photo</h2>
-
-<div class="input-group">
-
-<label>Passport Photo</label>
-
-<input
-type="file"
-id="photo"
-accept="image/*"
-required>
-
-</div>
-<button
-type="submit"
-id="submitBtn">
-
-Register
-
-</button>
-
-</form>
-
-<div id="successBox" style="display:none">
-
-    <h2>Registration Successful</h2>
-
-   </form>
-
-<div id="successBox" style="display:none">
-
-    <h2>Registration Successful</h2>
-
-    <p><strong>Registration ID:</strong>
-        <span id="registrationID"></span>
-    </p>
-
-    <img id="qrImage" width="250" alt="QR Code">
-
-    <br><br>
-
-    <a id="qrLink" target="_blank">
-        Open Verification Page
-    </a>
-
-</div>
-
-</div>
-
-</div>
-
-</body>
+          <a id="qrLink" target="_blank"> Open Verification Page </a>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
