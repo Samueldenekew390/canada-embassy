@@ -10,29 +10,29 @@ const CLOUD_NAME = "qfi6xcnp";
 const UPLOAD_PRESET = "qr_uploads";
 
 const form = document.getElementById("registrationForm");
-
 const submitBtn = document.getElementById("submitBtn");
 
 async function uploadToCloudinary(file) {
-  if (!file) return "";
+  if (!file) {
+    throw new Error("Please select a passport photo.");
+  }
 
-  const fd = new FormData();
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", UPLOAD_PRESET);
 
-  fd.append("file", file);
-  fd.append("upload_preset", UPLOAD_PRESET);
-
-  const res = await fetch(
-    `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/auto/upload`,
+  const response = await fetch(
+    `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
     {
       method: "POST",
-      body: fd,
+      body: formData,
     },
   );
 
-  const data = await res.json();
+  const data = await response.json();
 
-  if (!res.ok) {
-    throw new Error(data.error.message);
+  if (!response.ok) {
+    throw new Error(data.error?.message || "Cloudinary upload failed.");
   }
 
   return data.secure_url;
@@ -40,7 +40,6 @@ async function uploadToCloudinary(file) {
 
 function randomID() {
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ123456789";
-
   let id = "";
 
   for (let i = 0; i < 12; i++) {
@@ -54,61 +53,44 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   submitBtn.disabled = true;
-
-  submitBtn.innerHTML = "Uploading...";
+  submitBtn.textContent = "Uploading...";
 
   try {
     const fullName = document.getElementById("fullName").value.trim();
-
     const email = document.getElementById("email").value.trim();
-
     const phone = document.getElementById("phone").value.trim();
-
     const gender = document.getElementById("gender").value;
-
     const dob = document.getElementById("dob").value;
-
     const nationality = document.getElementById("nationality").value.trim();
-
     const address = document.getElementById("address").value.trim();
 
-    const photo = document.getElementById("photo").files[0];
+    const photoFile = document.getElementById("photo").files[0];
 
-   
-    submitBtn.innerHTML = "Uploading Photo...";
+    submitBtn.textContent = "Uploading Photo...";
 
-    const photoUrl = await uploadToCloudinary(photo);
+    const photoUrl = await uploadToCloudinary(photoFile);
 
-  
     const registrationId = randomID();
 
-    const verifyURL = `${location.origin}${location.pathname.replace("register.html", "verify.html")}?id=${registrationId}`;
+    const verifyURL = `https://canada-embassy-sigma.vercel.app/verify.html?id=${registrationId}`;
 
-    submitBtn.innerHTML = "Generating QR Code...";
+    const qrURL = `https://quickchart.io/qr?size=500&text=${encodeURIComponent(verifyURL)}`;
 
-    const qrURL =
-      "https://quickchart.io/qr?size=500&text=" + encodeURIComponent(verifyURL);
+    submitBtn.textContent = "Saving...";
 
     await setDoc(doc(db, "registrations", registrationId), {
       registrationId,
-
       fullName,
-
       email,
-
       phone,
-
       gender,
-
       dob,
-
       nationality,
-
       address,
 
-      status: "ACCEPTED",
-
       photoUrl,
+
+      status: "ACCEPTED",
 
       qrCode: qrURL,
 
@@ -117,11 +99,13 @@ form.addEventListener("submit", async (e) => {
       createdAt: serverTimestamp(),
     });
 
+    document.getElementById("registrationID").textContent = registrationId;
+
     document.getElementById("qrImage").src = qrURL;
 
     document.getElementById("qrLink").href = verifyURL;
 
-    document.getElementById("registrationID").innerText = registrationId;
+    document.getElementById("qrLink").textContent = "Open Verification Page";
 
     document.getElementById("successBox").style.display = "block";
 
@@ -129,16 +113,15 @@ form.addEventListener("submit", async (e) => {
 
     window.scrollTo({
       top: document.body.scrollHeight,
-
       behavior: "smooth",
     });
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
 
-    alert(err.message);
+    alert(error.message);
+  } finally {
+    submitBtn.disabled = false;
+
+    submitBtn.textContent = "Register";
   }
-
-  submitBtn.disabled = false;
-
-  submitBtn.innerHTML = "Register";
 });
