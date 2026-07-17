@@ -232,6 +232,22 @@ transition:.3s;
     width: 300px;
     height: 400px;
 }
+
+#visionImage{
+    
+    width:160px;
+    height:160px;
+}
+
+#teamImage{
+    width:160px;
+    height:160px;
+}
+
+#companyImage{
+    width:160px;
+    height:160px;
+}
 .documents a:hover{
 
 background:#0d47a1;
