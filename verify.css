@@ -188,13 +188,25 @@ font-size:18px;
 }
 
 .documents{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 
-display:grid;
+.documents img{
+    width:160px;
+    height:160px;
+    object-fit:cover;
+    border-radius:12px;
+    border:4px solid #1565c0;
+    padding:4px;
+    background:#fff;
+    box-shadow:0 6px 15px rgba(0,0,0,.15);
+    transition:.3s;
+}
 
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:15px;
-
+.documents img:hover{
+    transform:scale(1.05);
 }
 
 .documents a{
