@@ -230,22 +230,22 @@ transition:.3s;
 }
 #photo{
     width: 300px;
-    height: 400px;
+    height: 200px;
 }
 
 #visionImage{
     
-    width:160px;
+    width:3000px;
     height:160px;
 }
 
 #teamImage{
-    width:160px;
+    width:300px;
     height:160px;
 }
 
 #companyImage{
-    width:160px;
+    width:300px;
     height:160px;
 }
 .documents a:hover{
