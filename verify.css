@@ -228,7 +228,10 @@ border-radius:8px;
 transition:.3s;
 
 }
-
+#photo{
+    width: 300px;
+    height: 400px;
+}
 .documents a:hover{
 
 background:#0d47a1;
